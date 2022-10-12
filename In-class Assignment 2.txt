@@ -1,0 +1,20 @@
+class Polygon {
+  public void render() {
+    System.out.println("This is a polygon");
+  }
+}
+
+class Square extends Polygon {
+  public void render() {
+    System.out.println("This is a square");
+  }
+}
+
+class Main {
+  public static void main(String[] args) {
+    Polygon s1 = new Square();
+    s1.render();
+  }
+
+
+}
