@@ -1,0 +1,38 @@
+import java.util.Vector;
+
+
+class Producer extends Thread {
+  //Intinitalization of quene size
+
+  static final int MAX = 7;
+  private Vector messages = new Vector();
+
+  @Overrride
+  public void run() {
+    try{
+      while(true) {
+        //producing a message to send to the consumer
+        putMessage();
+
+        //producer goes to sleep when the quene is full
+        sleep(1000);
+        
+      }
+    } catch (InterruptedException e) {
+    }
+  }
+}
+
+private synchronized void putMessage() throws InterruptedException {
+  //checks whether the quene is full or not
+  while (messages.size()== MAX)
+
+
+  //waits for the quene to get empty
+  wait();
+
+
+  //then again adds element or messages
+  messages.addElement(new java.util.Date().toString());
+  notify();
+}
